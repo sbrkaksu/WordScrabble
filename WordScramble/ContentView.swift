@@ -35,7 +35,10 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count > 0 else {return}
         
-        usedWords.insert(answer, at: 0)
+        withAnimation{
+            usedWords.insert(answer, at: 0)
+        }
+    
         newWord = ""
     }
 }

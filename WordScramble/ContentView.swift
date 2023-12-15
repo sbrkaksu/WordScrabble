@@ -35,7 +35,7 @@ struct ContentView: View {
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .toolbar{
-                Button("Change the word!", action: startGame)
+                Button("Change the word!", action: resetGame)
             }
             .onAppear(perform: startGame)
             .alert(errorTitle, isPresented: $showingError){
@@ -81,6 +81,12 @@ struct ContentView: View {
             }
         }
         fatalError("Could not load start.txt from bundle.")
+    }
+    
+    func resetGame(){
+        startGame()
+        usedWords = [String]()
+        newWord = ""
     }
     
     func isOriginal(word: String) -> Bool {

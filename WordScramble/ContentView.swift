@@ -34,6 +34,9 @@ struct ContentView: View {
             }
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
+            .toolbar{
+                Button("Change the word!", action: startGame)
+            }
             .onAppear(perform: startGame)
             .alert(errorTitle, isPresented: $showingError){
                 Button("OK", role: .cancel){}
